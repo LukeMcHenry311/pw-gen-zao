@@ -1,12 +1,11 @@
 // DOM elements
-const resultEl = document.getElementById('result');
+const resultEl = document.getElementById('password');
 const lengthEl = document.getElementById('length');
 const uppercaseEl = document.getElementById('uppercase');
 const lowercaseEl = document.getElementById('lowercase');
 const numbersEl = document.getElementById('numbers');
 const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generate');
-const clipboardEl = document.getElementById('clipboard');
 
 const randomFunc = {
   lower: getRandomLower,
@@ -15,30 +14,26 @@ const randomFunc = {
   symbol: getRandomSymbol
 };
 
-// generate event listen
-// arrow just simplifies it - i think of it as pointing the user into the brackets
+
 generateEl.addEventListener('click', () => {
-  // const length = lengthEl.value;
+  const length = lengthEl.value;
   const hasLower = lowercaseEl.checked;
   const hasUpper = uppercaseEl.checked;
   const hasNumber = numbersEl.checked;
   const hasSymbol = symbolsEl.checked;
   
-  resultEl.innerText = generatePassword(
-    hasLower,
-    hasUpper,
-    hasNumber,
-    hasSymbol,
-    length
-    );
+  var newPassword = generatedPassword(hasLower,hasUpper,hasNumber,hasSymbol,length);
+  resultEl.innerText = newPassword
 });
 
+
 // generate password function
-function generatePassword(lower, upper, number, symbol, length) {
+function generatedPassword(lower, upper, number, symbol, length) {
   //1. Init pw var
   //2. Filter out unchecked types
   //3. Loop over length call generator function for each type
   //4. Add final pw to the pw var and return 
+
 
   let generatedPassword = '';
 
@@ -67,8 +62,8 @@ function generatePassword(lower, upper, number, symbol, length) {
     });
   }
 
-  const finalPassowrd = console.log(generatedPassword.slice(0, length));
-
+  const finalPassword = generatedPassword.slice(0, length);
+  console.log(finalPassword);
   return finalPassword;
 }
 // Resource for generators https://net-comber.com/charset.html
@@ -94,21 +89,25 @@ function getRandomSymbol() {
   return symbols [Math.floor(Math.random() * symbols.length)];
 }
 
+// working properly?
 console.log(getRandomSymbol());
-// Assignment code here
+console.log(getRandomLower());
+console.log(getRandomUpper());
+console.log(getRandomNumber());
 
+// // Get references to the #generate element
+// var generateBtn = document.querySelector("#generate");
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatedPassword();
+//   var passwordText = document.querySelector("#password");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+//   passwordText.value = password;
 
-  passwordText.value = password;
+// }
 
-}
+// // // Add event listener to generate button
+// // generateBtn.addEventListener("click", writePassword);
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// var password = generatedPassword();
