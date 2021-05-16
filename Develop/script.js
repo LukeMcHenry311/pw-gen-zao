@@ -16,6 +16,7 @@ const randomFunc = {
 };
 
 // generate event listen
+// arrow just simplifies it - i think of it as pointing the user into the brackets
 generateEl.addEventListener('click', () => {
   // const length = lengthEl.value;
   const hasLower = lowercaseEl.checked;
@@ -43,16 +44,33 @@ function generatePassword(lower, upper, number, symbol, length) {
 
   const typesCount = lower + upper + number + symbol;
 
-  console.log('typesCount: ', typesCount);
+  // console.log('typesCount: ', typesCount);
 
   const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter
   (
     item => Object.values(item)[0]
   );
 
-  console.log('typesArr: ', typesArr);
-}
+  // console.log('typesArr: ', typesArr);
 
+
+  if(typesCount === 0) {
+    return '';
+  }
+
+  for(let i = 0; i < length; i += typesCount) {
+    typesArr.forEach(type => {
+      const funcName = Object.keys(type) [0];
+      console.log('funcName: ', funcName)
+
+      generatedPassword += randomFunc[funcName] ();
+    });
+  }
+
+  const finalPassowrd = console.log(generatedPassword.slice(0, length));
+
+  return finalPassword;
+}
 // Resource for generators https://net-comber.com/charset.html
 
 // * 26 because thats the number of letters in the alphabet, + 97 because 97-122 are all lower-case characters in the browser character set
