@@ -63,7 +63,6 @@ function generatedPassword(lower, upper, number, symbol, length) {
   }
 
   const finalPassword = generatedPassword.slice(0, length);
-  console.log(finalPassword);
   return finalPassword;
 }
 // Resource for generators https://net-comber.com/charset.html
@@ -88,12 +87,6 @@ function getRandomSymbol() {
   const symbols = '!"#$%&()*+,-./:;<=>?@^_|~'
   return symbols [Math.floor(Math.random() * symbols.length)];
 }
-
-// working properly?
-console.log(getRandomSymbol());
-console.log(getRandomLower());
-console.log(getRandomUpper());
-console.log(getRandomNumber());
 
 // // Get references to the #generate element
 // var generateBtn = document.querySelector("#generate");

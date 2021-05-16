@@ -9,6 +9,6 @@ i have changed and added to this code in the following ways (and more)
 6. added 5 div's in HTML (checkboxes) to make the site more friendly to generating a password more than once 
 
 the repository for this assignment is: https://github.com/LukeMcHenry311/pw-gen-zao
-the URL of the deployed application is: https://lukemchenry311.github.io/pw-gen-zao/ - ?debug works for me when it just shows the readme.md file
+the URL of the deployed application is: https://lukemchenry311.github.io/pw-gen-zao/ -
 
 ![Screenshot 2021-05-16 123323](https://user-images.githubusercontent.com/82482629/118408533-3bf66680-b643-11eb-90ff-c92dcde7c39d.png)
