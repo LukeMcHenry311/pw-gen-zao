@@ -1,6 +1,6 @@
 # PW GEN ZAO
 This week's weekly challenge was to make a password generator that you can specify with uppercase, lowercase, numbers and symbols.
-i have changed and added to this code in the following ways
+i have changed and added to this code in the following ways (and more)
 1. added prompts for password criteria 
 2. added a function to create a random password (catered to the users choices)
 3. added math.random equations to calculate random numbers and misc (symbols and letters)
