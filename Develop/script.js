@@ -1,9 +1,58 @@
+// DOM elements
+const resultEl = document.getElementById('result');
+const lengthEl = document.getElementById('length');
+const uppercaseEl = document.getElementById('uppercase');
+const lowercaseEl = document.getElementById('lowercase');
+const numbersEl = document.getElementById('numbers');
+const symbolsEl = document.getElementById('symbols');
+const generateEl = document.getElementById('generate');
+const clipboardEl = document.getElementById('clipboard');
+
 const randomFunc = {
   lower: getRandomLower,
   upper: getRandomUpper,
   number: getRandomNumber,
   symbol: getRandomSymbol
 };
+
+// generate event listen
+generateEl.addEventListener('click', () => {
+  const length = lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numbersEl.checked;
+  const hasSymbol = symbolsEl.checked;
+  
+  resultEl.innerText = generatePassword(
+    hasLower,
+    hasUpper,
+    hasNumber,
+    hasSymbol,
+    length
+    );
+});
+
+// generate password function
+function generatePassword(lower, upper, number, symbol, length) {
+  //1. Init pw var
+  //2. Filter out unchecked types
+  //3. Loop over length call generator function for each type
+  //4. Add final pw to the pw var and return 
+
+  let generatedPassword = '';
+
+  const typesCount = lower + upper + number + symbol;
+
+  console.log('typesCount: ', typesCount);
+
+  const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter
+  (
+    item => Object.values(item)[0]
+  );
+
+  console.log('typesArr: ', typesArr);
+}
+
 // Resource for generators https://net-comber.com/charset.html
 
 // * 26 because thats the number of letters in the alphabet, + 97 because 97-122 are all lower-case characters in the browser character set
